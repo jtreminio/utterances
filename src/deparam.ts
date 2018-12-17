@@ -8,6 +8,9 @@ export function deparam(query: string): { [name: string]: string; } {
   while (match = search.exec(query)) {
     params[decode(match[1])] = decode(match[2]);
   }
+
+  params.pathname = params.pathname ? params.pathname : '/';
+
   return params;
 }
 

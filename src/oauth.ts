@@ -1,8 +1,8 @@
-import { UTTERANCES_API } from './utterances-api';
+import { settings } from './app-settings';
 import { param } from './deparam';
 
-const authorizeUrl = `${UTTERANCES_API}/authorize`;
-const tokenUrl = `${UTTERANCES_API}/token`;
+const authorizeUrl = `${settings.utterances_api}/authorize`;
+const tokenUrl = `${settings.utterances_api}/token`;
 // tslint:disable-next-line:variable-name
 const redirect_uri = `${location.origin}/authorized.html`;
 

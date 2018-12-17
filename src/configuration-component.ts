@@ -1,3 +1,5 @@
+import { settings } from './app-settings';
+
 export class ConfigurationComponent {
   public readonly element: HTMLFormElement;
   private readonly script: HTMLDivElement;
@@ -13,7 +15,7 @@ export class ConfigurationComponent {
       </p>
       <ol>
         <li>Make sure the repo is public, otherwise your readers will not be able to view the issues/comments.</li>
-        <li>Make sure the <a href="https://github.com/apps/utterances">utterances app</a>
+        <li>Make sure the <a href="https://github.com/apps/${settings.github_app_name}">utterances app</a>
           is installed on the repo, otherwise users will not be able to post comments.
         </li>
         <li>If your repo is a fork, navigate to it's <em>settings</em> tab and confirm
@@ -179,7 +181,7 @@ export class ConfigurationComponent {
 
   private makeConfigScript(attrs: string) {
     // tslint:disable-next-line:max-line-length
-    return `<pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://utteranc.es/client.js<span class="pl-pds">"</span></span></span>\n${attrs}\n<span class="pl-s1">        <span class="pl-e">async</span>&gt;</span>\n<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre>`;
+    return `<pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://${settings.app_root}<span class="pl-pds">"</span></span></span>\n${attrs}\n<span class="pl-s1">        <span class="pl-e">async</span>&gt;</span>\n<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre>`;
   }
 
   private copyTextToClipboard(text: string) {

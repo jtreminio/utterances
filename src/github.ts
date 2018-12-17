@@ -1,6 +1,6 @@
+import { settings } from './app-settings';
 import { token } from './oauth';
 import { decodeBase64UTF8 } from './encoding';
-import { UTTERANCES_API } from './utterances-api';
 
 const GITHUB_API = 'https://api.github.com/';
 const GITHUB_ENCODING__HTML_JSON = 'application/vnd.github.VERSION.html+json';
@@ -189,7 +189,7 @@ export function loadUser(): Promise<User | null> {
 }
 
 export function createIssue(issueTerm: string, documentUrl: string, title: string, description: string) {
-  const request = new Request(`${UTTERANCES_API}/repos/${owner}/${repo}/issues`, {
+  const request = new Request(`${settings.utterances_api}/repos/${owner}/${repo}/issues`, {
     method: 'POST',
     body: JSON.stringify({
       title: issueTerm,
