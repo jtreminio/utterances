@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+git clone https://github.com/jtreminio/utterances.git
+cd utterances
+
+docker image build \
+    -t jtreminio/utterances \
+    -f Dockerfile \
+    .
+
+# docker image push jtreminio/utterances
+# docker image push jtreminio/utterances:latest

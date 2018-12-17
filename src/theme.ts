@@ -14,3 +14,18 @@ export function loadTheme(theme: string, origin: string) {
     });
   });
 }
+
+export function loadCss(cssurl: string) {
+  return new Promise(resolve => {
+    if (!cssurl) {
+      return;
+    }
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.setAttribute('crossorigin', 'anonymous');
+    link.onload = resolve;
+    link.href = cssurl;
+    document.head.appendChild(link);
+  });
+}
